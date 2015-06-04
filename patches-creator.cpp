@@ -50,8 +50,10 @@ void parseArgs(int argc, char** argv) {
 	desc.add_options()
 		("help,h", "Показать этот экран")
 		("update,u", "Обновить данные о директории")
-		("storage,s", po::value<string>()->value_name("<file>"), "XML Файл для записи/чтения информации о директории")
-		("out-dir,t", po::value<string>()->value_name("<dir>"), "Директория, в которую будут помещены измененные файлы (совместно с флагом -c)")
+		("storage,s", po::value<string>()->value_name("<file>"), 
+			"XML Файл для записи/чтения информации о директории")
+		("out-dir,t", po::value<string>()->value_name("<dir>"), 
+			"Директория, в которую будут помещены измененные файлы (совместно с флагом -c)")
 		("compare,c", "Сравнить две директории и создать файл со списком различий");
 
 	/* input files */
@@ -73,7 +75,8 @@ void parseArgs(int argc, char** argv) {
 		// Сравнивает данные из <inp-dir> и инф. о файлах из storage.xml, и сохраняет различия в <dst-dir>
 		cout << "Example: " << endl;
 		cout << " " << argv[0] << " -c -s storage.xml -t <dst-dir> <inp-dir>" << endl;
-		// Записывает инф-ю о файлах из <inp-dir> и пишет ее в eistorage.xml (его затем использовать для создания набора различий)
+		// Записывает инф-ю о файлах из <inp-dir> и пишет ее в eistorage.xml 
+		// (его затем использовать для создания набора различий)
 		cout << " " << argv[0] << " -u -s storage.xml <inp-dir>" << endl << endl;
 		cout << desc << endl;
 		exit(EXIT_SUCCESS);
