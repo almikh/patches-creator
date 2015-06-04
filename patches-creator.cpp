@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <fstream>
 #include <map>
 #include <set>
@@ -48,11 +48,11 @@ int main(int argc, char** argv) {
 void parseArgs(int argc, char** argv) {
 	po::options_description desc("Options");
 	desc.add_options()
-		("help,h", "Показать этот экран")
-		("update,u", "Обновить данные о директории")
-		("storage,s", po::value<string>()->value_name("<file>"), "XML Файл для записи/чтения информации о директории")
-		("out-dir,t", po::value<string>()->value_name("<dir>"), "Директория, в которую будут помещены измененные файлы (совместно с флагом -c)")
-		("compare,c", "Сравнить две директории и создать файл со списком различий");
+		("help,h", "РџРѕРєР°Р·Р°С‚СЊ СЌС‚РѕС‚ СЌРєСЂР°РЅ")
+		("update,u", "РћР±РЅРѕРІРёС‚СЊ РґР°РЅРЅС‹Рµ Рѕ РґРёСЂРµРєС‚РѕСЂРёРё")
+		("storage,s", po::value<string>()->value_name("<file>"), "XML Р¤Р°Р№Р» РґР»СЏ Р·Р°РїРёСЃРё/С‡С‚РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РґРёСЂРµРєС‚РѕСЂРёРё")
+		("out-dir,t", po::value<string>()->value_name("<dir>"), "Р”РёСЂРµРєС‚РѕСЂРёСЏ, РІ РєРѕС‚РѕСЂСѓСЋ Р±СѓРґСѓС‚ РїРѕРјРµС‰РµРЅС‹ РёР·РјРµРЅРµРЅРЅС‹Рµ С„Р°Р№Р»С‹ (СЃРѕРІРјРµСЃС‚РЅРѕ СЃ С„Р»Р°РіРѕРј -c)")
+		("compare,c", "РЎСЂР°РІРЅРёС‚СЊ РґРІРµ РґРёСЂРµРєС‚РѕСЂРёРё Рё СЃРѕР·РґР°С‚СЊ С„Р°Р№Р» СЃРѕ СЃРїРёСЃРєРѕРј СЂР°Р·Р»РёС‡РёР№");
 
 	/* input files */
 	po::options_description full_desc;
@@ -70,10 +70,10 @@ void parseArgs(int argc, char** argv) {
 
 	if (argc < 2 || vm.count("help")) {
 		cout << "Usage: " << argv[0] << " [options] <target directory>" << endl << endl;
-		// Сравнивает данные из <inp-dir> и инф. о файлах из storage.xml, и сохраняет различия в <dst-dir>
+		// РЎСЂР°РІРЅРёРІР°РµС‚ РґР°РЅРЅС‹Рµ РёР· <inp-dir> Рё РёРЅС„. Рѕ С„Р°Р№Р»Р°С… РёР· storage.xml, Рё СЃРѕС…СЂР°РЅСЏРµС‚ СЂР°Р·Р»РёС‡РёСЏ РІ <dst-dir>
 		cout << "Example: " << endl;
 		cout << " " << argv[0] << " -c -s storage.xml -t <dst-dir> <inp-dir>" << endl;
-		// Записывает инф-ю о файлах из <inp-dir> и пишет ее в eistorage.xml (его затем использовать для создания набора различий)
+		// Р—Р°РїРёСЃС‹РІР°РµС‚ РёРЅС„-СЋ Рѕ С„Р°Р№Р»Р°С… РёР· <inp-dir> Рё РїРёС€РµС‚ РµРµ РІ eistorage.xml (РµРіРѕ Р·Р°С‚РµРј РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РЅР°Р±РѕСЂР° СЂР°Р·Р»РёС‡РёР№)
 		cout << " " << argv[0] << " -u -s storage.xml <inp-dir>" << endl << endl;
 		cout << desc << endl;
 		exit(EXIT_SUCCESS);
